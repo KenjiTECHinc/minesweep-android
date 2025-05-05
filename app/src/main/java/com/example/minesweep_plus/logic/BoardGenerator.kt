@@ -95,19 +95,6 @@ object BoardGenerator {
         }
     }
 
-//    fun initBoard(
-//    fun initBoard(
-//        rows: Int,
-//        cols: Int,
-//        totalMines: Int,
-//        reservedPositions: List<Pair<Int, Int>>
-//    ): List<MutableList<Cell>> {
-//        val board = createBoard(rows, cols)
-//        fillMines(board, rows, cols, totalMines, reservedPositions)
-//        fillNumbers(board, rows, cols)
-//        return board
-//    }
-
     fun initGame(
         board: MutableList<MutableList<Cell>>,
         rows: Int,

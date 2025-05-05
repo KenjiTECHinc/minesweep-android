@@ -16,7 +16,7 @@ object GameLogic {
         while (stack.isNotEmpty()) {
             val (r, c) = stack.removeFirst()
             val cell = board[r][c]
-//        if (cell.isOpened || cell.isFlagged) continue
+            if (cell.isOpened || cell.isFlagged) continue
             cell.isOpened = true
 
             if (cell.value is CellValue.Empty) {
@@ -32,7 +32,7 @@ object GameLogic {
                 }
             }
         }
-        Log.d("myTag", "Reveal adjacent cells!")
+        Log.d("Logic Tag", "Reveal adjacent cells!")
     }
 
     fun revealAllMines(board: MutableList<MutableList<Cell>>) {
@@ -59,9 +59,5 @@ object GameLogic {
         }
 
         return checkFlags || checkSafeOpens
-
-//        return board.flatten().all {
-//            (it.value is CellValue.Mine && !it.isOpened) || (it.value !is CellValue.Mine && it.isOpened)
-//        }
     }
 }

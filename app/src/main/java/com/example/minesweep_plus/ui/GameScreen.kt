@@ -6,17 +6,12 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.gestures.detectTapGestures
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.material3.Button
-import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.TestModifierUpdaterLayout
 import androidx.compose.ui.unit.dp
 import com.example.minesweep_plus.logic.BoardGenerator
 import com.example.minesweep_plus.model.Cell
@@ -103,7 +98,7 @@ fun GameScreen(modifier: Modifier = Modifier,
         }
 
         cell.isOpened = true
-        Log.d("myTag", "cell is opened!")
+        Log.d("gameScreen", "cell is opened!")
 
         if (cell.value is CellValue.Mine) {
             gameState = GameState.LOST
@@ -112,7 +107,7 @@ fun GameScreen(modifier: Modifier = Modifier,
             if (cell.value is CellValue.Empty) {
                 // Recursive open
                 GameLogic.floodFill(row, col, board)
-                Log.d("myTag", "reveal Empty!")
+                Log.d("gameScreen", "reveal Empty!")
             }
 
             if (GameLogic.checkWin(board)) {
