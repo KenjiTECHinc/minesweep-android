@@ -16,7 +16,7 @@ object GameLogic {
         while (stack.isNotEmpty()) {
             val (r, c) = stack.removeFirst()
             val cell = board[r][c]
-            if (cell.isOpened || cell.isFlagged) continue
+            if (cell.isFlagged) continue
             cell.isOpened = true
 
             if (cell.value is CellValue.Empty) {
